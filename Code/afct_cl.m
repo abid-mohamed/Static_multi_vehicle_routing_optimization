@@ -1,0 +1,11 @@
+function vh=afct_cl(i,j,y,vh,cust)
+vh.ncptd(i,2)=vh.ncptd(i,2)-cust(y(j,1)+1,4);	% modifier la capacité du véhicule.
+vh.ncptd(i,3)=y(j,1);  % modifier la position du véhicule au client y(i,1).
+vh.ncptd(i,4)=vh.ncptd(i,4)+cust(y(j,1)+1,7); % modifier le temp parcouru par le véhicule.
+vh.ncptd(i,5)=vh.ncptd(i,5)+y(j,2);   % modifier la distance parcouru par le véhicule.
+vh.ncptd(i,6)=1;
+l=size(vh.pchst{i},1);
+vh.pchst{i}(l+1,1)=vh.ncptd(i,3);
+vh.pchst{i}(l+1,2)=vh.ncptd(i,2);
+vh.pchst{i}(l+1,3)=vh.ncptd(i,4);
+vh.pchst{i}(l+1,4)=vh.ncptd(i,5);
